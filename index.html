@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0b1220" />
+  <title>Fleet Board</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">LIVE OPERATIONS</p>
+        <h1>Fleet Board</h1>
+      </div>
+      <button id="resetBtn" class="icon-btn" title="Reset demo data">↻</button>
+    </header>
+
+    <section class="summary" id="summary"></section>
+
+    <section class="filters" aria-label="Fleet filters">
+      <button class="filter active" data-filter="all">All</button>
+      <button class="filter" data-filter="available">Available</button>
+      <button class="filter" data-filter="in-use">In Use</button>
+      <button class="filter" data-filter="tagged-out">Tagged Out</button>
+    </section>
+
+    <main>
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">TRUCK STATUS</p>
+          <h2>Units</h2>
+        </div>
+        <span id="updatedAt" class="muted"></span>
+      </div>
+      <div id="truckList" class="truck-list"></div>
+
+      <div class="section-head activity-head">
+        <div>
+          <p class="eyebrow">RECENT CHANGES</p>
+          <h2>Activity</h2>
+        </div>
+      </div>
+      <div id="activityList" class="activity-list"></div>
+    </main>
+  </div>
+
+  <dialog id="truckDialog" class="modal">
+    <form method="dialog" id="truckForm">
+      <div class="modal-head">
+        <div>
+          <p class="eyebrow">UPDATE UNIT</p>
+          <h2 id="dialogTitle">Truck</h2>
+        </div>
+        <button class="icon-btn" value="cancel" aria-label="Close">✕</button>
+      </div>
+
+      <label>
+        Status
+        <select id="statusInput" required>
+          <option value="available">Available</option>
+          <option value="in-use">In Use</option>
+          <option value="tagged-out">Tagged Out</option>
+        </select>
+      </label>
+
+      <label id="driverField">
+        Driver
+        <select id="driverInput"></select>
+      </label>
+
+      <label id="reasonField">
+        Tag-out reason
+        <select id="reasonInput">
+          <option value="">Select a reason</option>
+          <option>Flat / damaged tire</option>
+          <option>Check engine light</option>
+          <option>Brake issue</option>
+          <option>Lighting / electrical issue</option>
+          <option>PM / scheduled service</option>
+          <option>Air leak</option>
+          <option>Mechanical issue</option>
+          <option>Other</option>
+        </select>
+      </label>
+
+      <label id="noteField">
+        Notes
+        <textarea id="noteInput" rows="3" placeholder="Optional details"></textarea>
+      </label>
+
+      <div class="modal-actions">
+        <button class="secondary" value="cancel">Cancel</button>
+        <button id="saveBtn" class="primary" value="default">Save update</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>

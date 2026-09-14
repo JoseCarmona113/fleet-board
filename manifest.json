@@ -1,0 +1,9 @@
+{
+  "name": "Fleet Board",
+  "short_name": "Fleet Board",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#08111f",
+  "theme_color": "#0b1220",
+  "icons": []
+}
